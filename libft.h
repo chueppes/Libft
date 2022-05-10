@@ -6,7 +6,7 @@
 /*   By: acalvo4 <acalvo4@student.42.rio>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/03 16:56:42 by acalvo4           #+#    #+#             */
-/*   Updated: 2022/05/10 10:46:08 by acalvo4          ###   ########.fr       */
+/*   Updated: 2022/05/10 14:36:01 by acalvo4          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,5 +20,6 @@ int ft_isdigit(int i);
 int ft_isalnum(int i);
 int ft_isascii(int i);
 int ft_isprint(int i);
-int ft_strlen(const char *s);
+size_t ft_strlen(const char *s);
+void *ft_memset(void *s, int c, size_t n);
 #endif
