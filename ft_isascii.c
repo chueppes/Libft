@@ -6,13 +6,13 @@
 /*   By: acalvo4 <acalvo4@student.42.rio>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/04 11:27:19 by acalvo4           #+#    #+#             */
-/*   Updated: 2022/05/04 11:35:11 by acalvo4          ###   ########.fr       */
+/*   Updated: 2022/05/11 15:32:42 by acalvo4          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_isascii(int i){
-	if	((i >= 0) && (i <= 177))
-	return(1);
-return(0);
+int	ft_isascii(int i)
+{
+	if ((i >= 0) && (i <= 177))
+		return (1);
+	return (0);
 }
-

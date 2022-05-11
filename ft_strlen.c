@@ -6,7 +6,7 @@
 /*   By: acalvo4 <acalvo4@student.42.rio>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/10 11:34:59 by acalvo4           #+#    #+#             */
-/*   Updated: 2022/05/10 13:37:35 by acalvo4          ###   ########.fr       */
+/*   Updated: 2022/05/11 15:34:20 by acalvo4          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
@@ -18,6 +18,5 @@ size_t	ft_strlen(const char *s)
 	i = 0;
 	while (s[i] != '\0')
 		i++;
-	return(i);
+	return (i);
 }
-

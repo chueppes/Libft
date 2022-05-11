@@ -6,19 +6,21 @@
 /*   By: acalvo4 <acalvo4@student.42.rio>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/10 13:19:45 by acalvo4           #+#    #+#             */
-/*   Updated: 2022/05/10 14:35:13 by acalvo4          ###   ########.fr       */
+/*   Updated: 2022/05/11 15:36:49 by acalvo4          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
 
-void *ft_memset(void *s, int c, size_t n)
+void	*ft_memset(void *s, int c, size_t n)
 {
-	unsigned char *p;
-	
-	p=s;
+	size_t	i;
+	unsigned char	*p;
 
-	while (n--)
-		*p++ = c;
-	 return(s);
+	i = 0;
+	p = (unsigned char *)s;
+	while (i < n){
+		p[i] = c;
+		i++;
+	}
+	return (s);
 }
-

@@ -6,17 +6,16 @@
 /*   By: acalvo4 <acalvo4@student.42.rio>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/03 11:41:22 by acalvo4           #+#    #+#             */
-/*   Updated: 2022/05/04 09:51:59 by acalvo4          ###   ########.fr       */
+/*   Updated: 2022/05/11 15:27:48 by acalvo4          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
 #include <unistd.h>
 
-int ft_isdigit(int i)
+int	ft_isdigit(int i)
 {
 	if ((i > 0) && (i < 9))
 		return (1);
-return (0);
+	return (0);
 }
-

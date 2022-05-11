@@ -6,7 +6,7 @@
 /*   By: acalvo4 <acalvo4@student.42.rio>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/04 09:24:50 by acalvo4           #+#    #+#             */
-/*   Updated: 2022/05/10 14:58:55 by acalvo4          ###   ########.fr       */
+/*   Updated: 2022/05/11 15:17:08 by acalvo4          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,12 +26,11 @@ void	*mem[100];
 *mem = "laranja";
 void	*mam[100];
 *mam = "laranja";
-int c;
-size_t n;
+//variáveis memcpy
+char teste[100] = "Geeksfor";
+char teste2[100] = "Geeksfor";
 
-c = 4;
-n = 3;
-
+//...............................................................................
 //ft_isalpha
 printf("\n ft_isalpha: \n");
 printf("Função original: %d \n", isalpha('o'));
@@ -58,10 +57,20 @@ printf("Função original: %zu \n", strlen(*s));
 printf("Minha função: %zu\n", ft_strlen(*s));
 //ft_memset
 printf("\n ft_memset: \n");
-printf("Função original: %d \n", *memset(*mem, c, n));
-printf("string após a função original: %d", mem);
-printf("Minha função: %d \n", *ft_memset(*mam, c, n));
-printf("string após a minha função: %d", mam);
+printf("Função original: %s \n", memset(mem, 'v', 3));
+printf("Minha função: %s \n", ft_memset(mam, 'v', 3));
+//ft_bzero
+printf("\n ft_bzero: \n");
+printf("Antes da função original: %s \n",(char *)mem);
+bzero(mem, 3);
+printf("Depois da função original: %s \n",(char *)mem);
+printf("Antes da minha função: %s \n",(char *)mam);
+ft_bzero(mam, 3);
+printf("Depois da minha função: %s \n",(char *)mam);
+//ft_memcpy
+printf("\n ft_memcpy \n");
+printf("Função original: %s \n",memcpy(teste + 5, teste, strlen(teste) + 1));
+printf("Minha Função: %s \n",ft_memcpy(teste2 + 5, teste2, strlen(teste2) + 1));
 
 return (0);
 }

@@ -6,13 +6,13 @@
 /*   By: acalvo4 <acalvo4@student.42.rio>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/04 11:44:22 by acalvo4           #+#    #+#             */
-/*   Updated: 2022/05/04 11:48:21 by acalvo4          ###   ########.fr       */
+/*   Updated: 2022/05/11 15:33:29 by acalvo4          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_isprint(int i){
-	if((i >= 32) && (i <= 127))
-		return(1);
-return(0);
+int	ft_isprint(int i)
+{
+	if ((i >= 32) && (i <= 127))
+		return (1);
+	return (0);
 }
-
