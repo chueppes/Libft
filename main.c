@@ -6,7 +6,7 @@
 /*   By: acalvo4 <acalvo4@student.42.rio>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/04 09:24:50 by acalvo4           #+#    #+#             */
-/*   Updated: 2022/05/11 15:17:08 by acalvo4          ###   ########.fr       */
+/*   Updated: 2022/05/12 15:30:10 by acalvo4          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,14 @@ void	*mam[100];
 //variáveis memcpy
 char teste[100] = "Geeksfor";
 char teste2[100] = "Geeksfor";
+//variáveis memmove
+char teste3[100] = "Geeksfor";
+char teste4[100] = "Geeksfor";
+//variáveis strlcpy
+char teste5[] = "Frase qualquer";
+char teste51[] = "xxxxxxx";
+char teste6[] = "Frase qualquer";
+char teste61[] = "xxxxxxx";
 
 //...............................................................................
 //ft_isalpha
@@ -61,16 +69,26 @@ printf("Função original: %s \n", memset(mem, 'v', 3));
 printf("Minha função: %s \n", ft_memset(mam, 'v', 3));
 //ft_bzero
 printf("\n ft_bzero: \n");
-printf("Antes da função original: %s \n",(char *)mem);
+printf("Antes da função original: %s\n",(char *)mem);
 bzero(mem, 3);
 printf("Depois da função original: %s \n",(char *)mem);
-printf("Antes da minha função: %s \n",(char *)mam);
+printf("Antes da minha função: %s\n",(char *)mam);
 ft_bzero(mam, 3);
 printf("Depois da minha função: %s \n",(char *)mam);
 //ft_memcpy
 printf("\n ft_memcpy \n");
 printf("Função original: %s \n",memcpy(teste + 5, teste, strlen(teste) + 1));
 printf("Minha Função: %s \n",ft_memcpy(teste2 + 5, teste2, strlen(teste2) + 1));
+//ft_memmove
+printf("\n ft_memmove \n");
+printf("Função original: %s \n",memmove(teste3 + 5, teste3, strlen(teste3) + 1));
+printf("Minha Função: %s \n",ft_memmove(teste4 + 5, teste4, strlen(teste4) + 1));
+//ft_strlcpy
+printf("\n ft_strlcpy\n");
+printf(" Função original:\n");
+printf("String %s copiada em %s, ate o índice %zu\n", teste5, teste51, strlcpy(teste51, teste5, 5));
+printf(" Minha função:\n");
+printf("String %s copiada em %s, ate o índice %zu\n", teste6, teste61, ft_strlcpy(teste61, teste6, 5));
 
 return (0);
 }
