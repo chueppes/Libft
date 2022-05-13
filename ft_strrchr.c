@@ -1,28 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlcat.c                                       :+:      :+:    :+:   */
+/*   ft_strrchr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: acalvo4 <acalvo4@student.42.rio>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/05/12 15:49:53 by acalvo4           #+#    #+#             */
-/*   Updated: 2022/05/13 10:08:32 by acalvo4          ###   ########.fr       */
+/*   Created: 2022/05/13 12:44:41 by acalvo4           #+#    #+#             */
+/*   Updated: 2022/05/13 13:04:12 by acalvo4          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
 
-size_t	ft_strlcat(char *dst, const char *src, size_t dstsize)
+char	*ft_strrchr(const char *s, int c)
 {
 	size_t	i;
-	size_t	lend;
 
-	i = 0;
-	lend = ft_strlen(dst);
-	while (dstsize-- > 0)
+	i = ft_strlen(s);
+	while (i >= 0)
 	{
-		dst[lend] = src[i];
-		i++;
-		lend++;
+		if (s[i] == c)
+			return (((char *) s + i));
+		i--;
 	}
-return (ft_strlen(dst));
+	return(0);
 }

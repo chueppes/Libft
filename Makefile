@@ -1,18 +1,33 @@
 NAME	=	libft.a
 
-C_SOURCE	=	$(wildcard ./.c)
+C_SOURCE	=	$(wildcard ./ft_*.c)
 
-all:	$(NAME) 
+OBJ	=	${C_SOURCE:.c=.o}
 
-C_FLAGS:	-Werror -Wextra -Wall
+CC	=	cc
 
-$(NAME):
-	cc $(CFLAGS) -c $(NAME) $(C_SOURCE)
+C_FLAGS	=	-Werror -Wextra -Wall
+
+RM	=	rm -f
+
+.c.o:	
+	${CC} ${C_FLAGS} -c $< -o ${<:.c=.o}
+
+all:	${NAME}
+
+$(NAME):	${OBJ}
+	ar rcs ${NAME} ${OBJ}
+	ranlib ${NAME}
 
 clean:
-	/rm -r *.o
+	${RM} ${OBJ}
 
-fclean:
-	/rm -r $(NAME)
+fclean:	clean
+		${RM} ${NAME}
 
 re: fclean all
+
+comp:
+	cc -Wall -Werror -Wextra -L. -lft main.c
+
+.PHONY: all clean fclean re

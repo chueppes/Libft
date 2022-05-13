@@ -6,7 +6,7 @@
 /*   By: acalvo4 <acalvo4@student.42.rio>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/04 09:24:50 by acalvo4           #+#    #+#             */
-/*   Updated: 2022/05/12 15:30:10 by acalvo4          ###   ########.fr       */
+/*   Updated: 2022/05/13 13:33:37 by acalvo4          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,17 +26,41 @@ void	*mem[100];
 *mem = "laranja";
 void	*mam[100];
 *mam = "laranja";
+
 //variáveis memcpy
 char teste[100] = "Geeksfor";
 char teste2[100] = "Geeksfor";
+
 //variáveis memmove
 char teste3[100] = "Geeksfor";
 char teste4[100] = "Geeksfor";
+
 //variáveis strlcpy
 char teste5[] = "Frase qualquer";
 char teste51[] = "xxxxxxx";
 char teste6[] = "Frase qualquer";
 char teste61[] = "xxxxxxx";
+
+//variáveis strlcat
+char teste7[100] = "segundo";
+char teste71[100] = "primeiro";
+char teste8[100] = "segundo";
+char teste81[100] = "primeiro";
+
+//variáveis toupper/tolower
+unsigned int c1;
+c1 = 'a';
+unsigned int c2;
+c2 = 'a';
+
+//variáveis strchr
+const char string[]="macarrao";
+unsigned int c;
+c = 'a';
+const char string1[]="macarrao";
+unsigned int d;
+d = 'a';
+
 
 //...............................................................................
 //ft_isalpha
@@ -89,6 +113,38 @@ printf(" Função original:\n");
 printf("String %s copiada em %s, ate o índice %zu\n", teste5, teste51, strlcpy(teste51, teste5, 5));
 printf(" Minha função:\n");
 printf("String %s copiada em %s, ate o índice %zu\n", teste6, teste61, ft_strlcpy(teste61, teste6, 5));
-
+//ft_strlcat
+printf("\n ft_strlcat\n");
+printf(" Função original:\n");
+printf("String %s copiada em %s, tamanho total: %zu\n", teste7, teste71,strlcat(teste71, teste7, 20));
+printf(" Minha função:\n");
+printf("String %s copiada em %s, tamanho total: %zu\n", teste8, teste81,ft_strlcat(teste81, teste8, 20));
+//ft_toupper
+printf("\nft_toupper\n");
+printf("Resultado esperado:\n");
+printf("maiúsculo: %c\n", toupper(c1));
+printf("retorno da minha função:\n");
+printf("maiúsculo: %c\n", ft_toupper(c2));
+//ft_tolower
+printf("\nft_tolower\n");
+printf("Resultado esperado:\n");
+printf("minúsculo: %c\n", tolower(c1));
+printf("retorno da minha função:\n");
+printf("minúsculo: %c\n", ft_tolower(c2));
+//ft_strchr
+printf("\nft_strchr\n");
+printf("Função original:%s\n", strchr(string, c));
+printf("Minha função:%s\n", ft_strchr(string1, d));
+//ft_strrchr
+printf("\nft_strchr\n");
+printf("Função original:%s\n", strrchr(string, c));
+printf("Minha função:%s\n", ft_strrchr(string1, d));
+//ft_strncmp
+printf("\nft_strncmp\n");
+printf("Função original em strings diferentes:%d\n", strncmp(string, teste7, '3'));
+printf("Função original em strings iguais:%d\n", strncmp(string, string1, '3'));
+printf("Minha função com strings diferentes:%d\n", ft_strncmp(string1, teste7, '3'));
+printf("Minha função com strings iguais:%d\n", ft_strncmp(string1, string1, '3'));
 return (0);
 }
+
