@@ -1,34 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlcat.c                                       :+:      :+:    :+:   */
+/*   ft_strnstr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: acalvo4 <acalvo4@student.42.rio>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/05/12 15:49:53 by acalvo4           #+#    #+#             */
-/*   Updated: 2022/05/18 15:59:11 by acalvo4          ###   ########.fr       */
+/*   Created: 2022/05/17 12:49:28 by acalvo4           #+#    #+#             */
+/*   Updated: 2022/05/18 09:41:28 by acalvo4          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
 
-size_t	ft_strlcat(char *dst, const char *src, size_t dstsize)
+char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
 {
+	size_t	nlen;
 	size_t	i;
-	size_t	lend;
-	size_t out;
 
 	i = 0;
-	lend = ft_strlen(dst);
-	if (dstsize > ft_strlen(dst))
-		out = ft_strlen(src) + ft_strlen(dst);
-	else
-		out = ft_strlen(src) + dstsize;
-	while (src[i] != '\0' && lend + 1 < dstsize)
+	nlen = ft_strlen(needle);
+	if (needle[0] == '\0')
+		return ((char *)haystack);
+	while (i <= len)
 	{
-		dst[lend] = src[i];
+		if (haystack[i] == needle[0])
+		{
+			if ((ft_strncmp(haystack + i, needle, nlen)) == 0)
+				return ((char *)haystack + i);
+		}
 		i++;
-		lend++;
 	}
-	dst[lend] = '\0';
-	return (out);
+	return (NULL);
 }

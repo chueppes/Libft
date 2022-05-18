@@ -1,34 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlcat.c                                       :+:      :+:    :+:   */
+/*   ft_memchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: acalvo4 <acalvo4@student.42.rio>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/05/12 15:49:53 by acalvo4           #+#    #+#             */
-/*   Updated: 2022/05/18 15:59:11 by acalvo4          ###   ########.fr       */
+/*   Created: 2022/05/17 10:22:48 by acalvo4           #+#    #+#             */
+/*   Updated: 2022/05/18 14:01:20 by acalvo4          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
 
-size_t	ft_strlcat(char *dst, const char *src, size_t dstsize)
+void	*ft_memchr(const void *s, int c, size_t n)
 {
-	size_t	i;
-	size_t	lend;
-	size_t out;
+	const char	*str;
+	size_t		j;
 
-	i = 0;
-	lend = ft_strlen(dst);
-	if (dstsize > ft_strlen(dst))
-		out = ft_strlen(src) + ft_strlen(dst);
-	else
-		out = ft_strlen(src) + dstsize;
-	while (src[i] != '\0' && lend + 1 < dstsize)
+	str = (const char *)s;
+	j = 0;
+	while (j < n)
 	{
-		dst[lend] = src[i];
-		i++;
-		lend++;
+		if (str[j] == c)
+			return ((void *)str + j);
+		j++;
 	}
-	dst[lend] = '\0';
-	return (out);
+	return (0);
 }

@@ -1,34 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlcat.c                                       :+:      :+:    :+:   */
+/*   ft_calloc.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: acalvo4 <acalvo4@student.42.rio>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/05/12 15:49:53 by acalvo4           #+#    #+#             */
-/*   Updated: 2022/05/18 15:59:11 by acalvo4          ###   ########.fr       */
+/*   Created: 2022/05/17 15:26:32 by acalvo4           #+#    #+#             */
+/*   Updated: 2022/05/18 09:28:36 by acalvo4          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
 
-size_t	ft_strlcat(char *dst, const char *src, size_t dstsize)
+void	*ft_calloc(size_t count, size_t size)
 {
+	char	*str;
 	size_t	i;
-	size_t	lend;
-	size_t out;
 
-	i = 0;
-	lend = ft_strlen(dst);
-	if (dstsize > ft_strlen(dst))
-		out = ft_strlen(src) + ft_strlen(dst);
-	else
-		out = ft_strlen(src) + dstsize;
-	while (src[i] != '\0' && lend + 1 < dstsize)
-	{
-		dst[lend] = src[i];
-		i++;
-		lend++;
-	}
-	dst[lend] = '\0';
-	return (out);
+	i = count * size;
+	str = malloc(i);
+	while (i-- > 0)
+		str[i] = 0;
+	return (str);
 }

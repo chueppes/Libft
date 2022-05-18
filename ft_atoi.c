@@ -1,34 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlcat.c                                       :+:      :+:    :+:   */
+/*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: acalvo4 <acalvo4@student.42.rio>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/05/12 15:49:53 by acalvo4           #+#    #+#             */
-/*   Updated: 2022/05/18 15:59:11 by acalvo4          ###   ########.fr       */
+/*   Created: 2022/05/17 14:43:48 by acalvo4           #+#    #+#             */
+/*   Updated: 2022/05/18 09:31:48 by acalvo4          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
 
-size_t	ft_strlcat(char *dst, const char *src, size_t dstsize)
+int	ft_atoi(const char *str)
 {
 	size_t	i;
-	size_t	lend;
-	size_t out;
+	int		aux;
 
+	aux = 0;
 	i = 0;
-	lend = ft_strlen(dst);
-	if (dstsize > ft_strlen(dst))
-		out = ft_strlen(src) + ft_strlen(dst);
-	else
-		out = ft_strlen(src) + dstsize;
-	while (src[i] != '\0' && lend + 1 < dstsize)
+	while (str[i] != '\0')
 	{
-		dst[lend] = src[i];
+		aux *= 10;
+		aux += str[i] - '0';
 		i++;
-		lend++;
 	}
-	dst[lend] = '\0';
-	return (out);
+	return (aux);
 }

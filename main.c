@@ -6,7 +6,7 @@
 /*   By: acalvo4 <acalvo4@student.42.rio>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/04 09:24:50 by acalvo4           #+#    #+#             */
-/*   Updated: 2022/05/13 13:33:37 by acalvo4          ###   ########.fr       */
+/*   Updated: 2022/05/18 11:00:11 by acalvo4          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,6 +61,25 @@ const char string1[]="macarrao";
 unsigned int d;
 d = 'a';
 
+//variaveis ft_memchr
+const char str[] = "http://www.tutorialspoint.com";
+const char ch = '.';
+
+//variaveis ft_memcmp
+char buffer1[] = "DWgaOtP12df0";
+char buffer2[] = "aaaaaa";
+char buffer3[] = "aaaaaa";
+
+//variaveis strnstr
+const char haystack[]="nhoque é macarrão de batata";
+const char needle[]="";
+
+//variaveis atoi
+const char atoe[]="12345";
+
+//variaveis calloc
+char *cal=calloc(8, sizeof(char));
+char *cal1=ft_calloc(8, sizeof(char));
 
 //...............................................................................
 //ft_isalpha
@@ -136,7 +155,7 @@ printf("\nft_strchr\n");
 printf("Função original:%s\n", strchr(string, c));
 printf("Minha função:%s\n", ft_strchr(string1, d));
 //ft_strrchr
-printf("\nft_strchr\n");
+printf("\nft_strrchr\n");
 printf("Função original:%s\n", strrchr(string, c));
 printf("Minha função:%s\n", ft_strrchr(string1, d));
 //ft_strncmp
@@ -144,7 +163,33 @@ printf("\nft_strncmp\n");
 printf("Função original em strings diferentes:%d\n", strncmp(string, teste7, '3'));
 printf("Função original em strings iguais:%d\n", strncmp(string, string1, '3'));
 printf("Minha função com strings diferentes:%d\n", ft_strncmp(string1, teste7, '3'));
-printf("Minha função com strings iguais:%d\n", ft_strncmp(string1, string1, '3'));
+printf("Minha função com strings iguais:%d\n", ft_strncmp(string, string1, '3'));
+//ft_memchr
+printf("\nft_memchr\n");
+printf("String after |%c| is - |%s|\n", ch, (char *) memchr(str, ch, strlen(str)));
+printf("String after |%c| is - |%s|\n", ch, (char *)ft_memchr(str, ch, strlen(str)));
+//ft_memcmp
+printf("\nft_memcmp\n");
+printf("Função original em strings diferentes:%d\n", memcmp(buffer1, buffer2, 3));
+printf("Função original em strings iguais:%d\n", memcmp(buffer2, buffer3, 3));
+printf("Minha função com strings diferentes:%d\n", ft_memcmp(buffer1, buffer2, 3));
+printf("Minha função com strings iguais:%d\n", ft_memcmp(buffer2, buffer3, 3));
+//ft_strnstr
+printf("\nft_strnstr\n");
+printf("Função original:%s\n", strnstr(haystack, needle, 25));
+printf("Minha função:%s\n", ft_strnstr(haystack, needle, 25));
+//ft_atoi
+printf("\nft_atoi\n");
+printf("Função original:%d\n", atoi(atoe));
+printf("Minha função:%d\n", ft_atoi(atoe));
+//ft_calloc
+printf("\nft_calloc\n");
+printf("Função original:%s\n", (char *)cal);
+printf("Minha função:%s\n", (char *)cal1);
+//ft_strdup
+printf("\nft_strdup\n");
+printf("Função original:%s\n", strdup(string));
+printf("Minha função:%s\n", ft_strdup(string));
 return (0);
 }
 
