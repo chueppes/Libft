@@ -6,7 +6,7 @@
 /*   By: acalvo4 <acalvo4@student.42.rio>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/17 10:22:48 by acalvo4           #+#    #+#             */
-/*   Updated: 2022/05/18 14:01:20 by acalvo4          ###   ########.fr       */
+/*   Updated: 2022/05/23 13:57:18 by acalvo4          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
@@ -20,7 +20,7 @@ void	*ft_memchr(const void *s, int c, size_t n)
 	j = 0;
 	while (j < n)
 	{
-		if (str[j] == c)
+		if (str[j] == (char)c)
 			return ((void *)str + j);
 		j++;
 	}
