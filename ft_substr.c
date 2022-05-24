@@ -1,34 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memmove.c                                       :+:      :+:    :+:   */
+/*   ft_substr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: acalvo4 <acalvo4@student.42.rio>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/05/12 10:46:04 by acalvo4           #+#    #+#             */
-/*   Updated: 2022/05/24 11:40:26 by acalvo4          ###   ########.fr       */
+/*   Created: 2022/05/24 12:29:57 by acalvo4           #+#    #+#             */
+/*   Updated: 2022/05/24 13:49:08 by acalvo4          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
 
-void	*ft_memmove(void *dest, const void *src, size_t len)
+char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
-	char		*tdest;
-	const char	*tsrc;
-	size_t		j;
+	char	*str;
+	size_t	j;
+	size_t	slen;
+	size_t	dlen;
 
-	tsrc = (char *)src;
-	tdest = (char *)dest;
-	j = 0;
-	if (tsrc > tdest && (tsrc - tdest) < (int)len)
-	{
-		while (j < len)
-		{
-			tdest[j] = tsrc[j];
-			j++;
-		}
-		return (dest);
-	}
-	ft_memcpy(dest, src, len);
-	return (dest);
+	j = start;
+	slen = ft_strlen(s);
+	dlen = slen - len;
+	if (start > len)
+		return (ft_strdup(""));
+	if (dlen >= len)
+		str = (char *)malloc(len + 1);
+	else
+		str = (char *)malloc(dlen + 1);
+	ft_strlcpy(str, &s[j], len + 1);
+	return (str);
 }
