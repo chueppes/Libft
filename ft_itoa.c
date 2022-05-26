@@ -6,31 +6,77 @@
 /*   By: acalvo4 <acalvo4@student.42.rio>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/25 14:53:00 by acalvo4           #+#    #+#             */
-/*   Updated: 2022/05/25 15:43:56 by acalvo4          ###   ########.fr       */
+/*   Updated: 2022/05/26 14:21:31 by acalvo4          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
+static size_t	size( long n);
+
 char	*ft_itoa(int n)
 {
-	char	*c;
-	int		i;
-	bool	neg;
+	char	*str;
+	int		neg;
+	int		rest;
+	int		s;
+	long	nlong;
 
-	i = 0;
-	neg = false;
-
-	if (n == 0)
+	nlong = n;
+	neg = 0;
+	s = size(n);
+	if (nlong == 0)
 	{
-		c[i++] = '0';
-		c[i] = '\0';
-		return (c);
+		str = ft_strdup("0");
+		return (str);
 	}
-	if (num < 0)
-		str[i++] = '-';
-	str[i] = '\0';
+	if (nlong < 0)
+	{
+		str = (char *) malloc(sizeof(char) * (s + 2));
+		if (!str)
+			return (NULL);
+		s++;
+		neg = 1;
+		nlong *= -1;
+	}
+	else
+	{
+		str = (char *) malloc(sizeof(char) * (s + 1));
+		if (!str)
+			return (NULL);
+	}
+	if (nlong != 0)
+	{
+		while (s--)
+		{
+			if ((neg == 1) && (s == 0))
+			{
+				str[0] = '-';
+				s = size(n);
+				str[s + 1] = '\0';
+				return (str);
+			}
+			rest = nlong % 10;
+			str[s] = rest + '0';
+			nlong = nlong / 10;
+		}
+	}
+	s = size(n);
+	str[s + 1] = '\0';
+	return (str);
 }
 
+static size_t	size(long n)
+{
+	size_t	count;
 
+	count = 0;
+	if (n >= 0 && n <= 9)
+		return (1);
+	while (n != 0)
+	{
+		count++;
+		n = n / 10;
+	}
+	return (count);
 }
