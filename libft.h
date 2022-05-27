@@ -6,7 +6,7 @@
 /*   By: acalvo4 <acalvo4@student.42.rio>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/03 16:56:42 by acalvo4           #+#    #+#             */
-/*   Updated: 2022/05/26 15:57:37 by acalvo4          ###   ########.fr       */
+/*   Updated: 2022/05/27 12:51:34 by acalvo4          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,6 @@ char	*ft_substr(char const *s, unsigned int start, size_t len);
 char	*ft_strjoin(char const *s1, char const *s2);
 char	*ft_strtrim(char const *s1, char const *set);
 char	*ft_itoa(int n);
-char	**ft_split(char const *s. char c);
+char	**ft_split(char const *s, char c);
 
 #endif

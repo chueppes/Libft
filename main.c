@@ -6,11 +6,11 @@
 /*   By: acalvo4 <acalvo4@student.42.rio>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/04 09:24:50 by acalvo4           #+#    #+#             */
-/*   Updated: 2022/05/19 15:12:24 by acalvo4          ###   ########.fr       */
+/*   Updated: 2022/05/27 13:31:41 by acalvo4          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
+/*#include <stdio.h>
 #include "libft.h"
 #include <ctype.h>
 #include <string.h>
@@ -250,4 +250,4 @@ printf("\n ft_atoi\n");
     printf("f empty  : %d\n", ft_atoi(""));
 return (0);
 }
-
+*/
