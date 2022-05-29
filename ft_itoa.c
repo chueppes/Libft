@@ -6,7 +6,7 @@
 /*   By: acalvo4 <acalvo4@student.42.rio>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/25 14:53:00 by acalvo4           #+#    #+#             */
-/*   Updated: 2022/05/26 14:21:31 by acalvo4          ###   ########.fr       */
+/*   Updated: 2022/05/29 15:20:03 by anna_calvo       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ char	*ft_itoa(int n)
 	}
 	if (nlong < 0)
 	{
-		str = (char *) malloc(sizeof(char) * (s + 2));
+		str = ft_calloc((s + 2), sizeof(char));
 		if (!str)
 			return (NULL);
 		s++;
@@ -41,7 +41,7 @@ char	*ft_itoa(int n)
 	}
 	else
 	{
-		str = (char *) malloc(sizeof(char) * (s + 1));
+		str = ft_calloc((s + 1), sizeof(char));
 		if (!str)
 			return (NULL);
 	}
@@ -61,8 +61,7 @@ char	*ft_itoa(int n)
 			nlong = nlong / 10;
 		}
 	}
-	s = size(n);
-	str[s + 1] = '\0';
+			s = size(n);
 	return (str);
 }
 

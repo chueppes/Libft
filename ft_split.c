@@ -6,55 +6,65 @@
 /*   By: acalvo4 <acalvo4@student.42.rio>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/26 15:55:16 by acalvo4           #+#    #+#             */
-/*   Updated: 2022/05/27 15:10:20 by acalvo4          ###   ########.fr       */
+/*   Updated: 2022/05/29 20:44:50 by anna_calvo       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
 #include "libft.h"
-#include <stdio.h>
 
-static int ft_wordlen(char const *s, char c);
+static int	ft_wordlen(char const *s, char c);
 static int	ft_wordcount(char const *s, char c);
+static void	ft_free(int i, char **ret);
 
 char	**ft_split(char const *s, char c)
 {
-	char **ret;
-	int	i;
-	int	size;
-	int aux;
-	int x;
+	int		i;
+	int		x;
+	int		aux;
+	int		size;
+	char		**ret;
 
 	x = 0;
-	aux = ft_wordcount(s, c);
 	i = 0;
-	if (!s)
-		return(0);
-	ret = ft_calloc(aux, sizeof(char **));
+	size = 0;
+	aux = ft_wordcount(s, c);
+	ret = ft_calloc(aux + 1, sizeof(char **));
 	if (!ret)
-		return(NULL);
+		return (NULL);
 	while ((x < aux) && (s[i] != '\0'))
 	{
-		while (s[i] == c)
+		while (s[i] == c && s[i] != '\0')
 			i++;
-		if (s[i] != '\0'){
-			size = ft_wordlen(s, c);
+		if (s[i] != '\0' && s[i] != c)
+		{
+			size = ft_wordlen(s + i, c);
 			ret[x] = ft_substr(s, i, size);
+			if (!ret[x])
+				ft_free(i, ret);
 			x++;
 			s = ft_strchr(s + i, c);
 			i = 0;
 		}
 	}
-	return(ret);
+	return (ret);
 }
 
-static int ft_wordlen(char const *s, char c)
+static void	ft_free(int i, char **ret)
 {
-	int count;
-	int	 i;
+	while (i > 0)
+		free(ret[i--]);
+	free(ret);
+	return ((void) NULL);
+}
+
+static int	ft_wordlen(char const *s, char c)
+{
+	int	count;
+	int	i;
 
 	i = 0;
 	count = 0;
-	while (s[i] != c){
+	while (s[i] != c && s[i] != '\0')
+	{
 		count++;
 		i++;
 	}
@@ -64,22 +74,20 @@ static int ft_wordlen(char const *s, char c)
 static int	ft_wordcount(char const *s, char c)
 {
 	int	i;
-	int j;
+	int	j;
 
 	i = 0;
 	j = 0;
-	while(*s != '\0')
+	while (*s != '\0')
 	{
-		if(*s != c && i == 0)
+		if (*s != c && i == 0)
 		{
 			i = 1;
 			j++;
 		}
-		else if (*s == c) {
+		else if (*s == c)
 			i = 0;
-		}
 		s++;
 	}
 	return (j);
 }
-
