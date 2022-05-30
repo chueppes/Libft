@@ -6,7 +6,7 @@
 /*   By: acalvo4 <acalvo4@student.42.rio>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/26 15:55:16 by acalvo4           #+#    #+#             */
-/*   Updated: 2022/05/29 20:44:50 by anna_calvo       ###   ########.fr       */
+/*   Updated: 2022/05/30 15:48:37 by acalvo4          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
@@ -14,26 +14,38 @@
 static int	ft_wordlen(char const *s, char c);
 static int	ft_wordcount(char const *s, char c);
 static void	ft_free(int i, char **ret);
+static void	ft_doit(char const *s, int i, char c, char **ret);
 
 char	**ft_split(char const *s, char c)
 {
-	int		i;
-	int		x;
-	int		aux;
-	int		size;
+	int			i;
 	char		**ret;
+	int			words;
 
-	x = 0;
 	i = 0;
-	size = 0;
-	aux = ft_wordcount(s, c);
-	ret = ft_calloc(aux + 1, sizeof(char **));
+	if (!s)
+		return (0);
+	words = ft_wordcount(s, c);
+	ret = ft_calloc(words + 1, sizeof(char **));
 	if (!ret)
 		return (NULL);
+	ft_doit(s + i, i, c, ret);
+	return (ret);
+}
+
+static void	ft_doit(char const *s, int i, char c, char **ret)
+{
+	int	x;
+	int	size;
+	int	aux;
+
+	x = 0;
+	size = 0;
+	aux = ft_wordcount(s, c);
 	while ((x < aux) && (s[i] != '\0'))
 	{
 		while (s[i] == c && s[i] != '\0')
-			i++;
+				i++;
 		if (s[i] != '\0' && s[i] != c)
 		{
 			size = ft_wordlen(s + i, c);
@@ -45,7 +57,6 @@ char	**ft_split(char const *s, char c)
 			i = 0;
 		}
 	}
-	return (ret);
 }
 
 static void	ft_free(int i, char **ret)
