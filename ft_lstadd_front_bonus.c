@@ -6,7 +6,7 @@
 /*   By: acalvo4 <acalvo4@student.42.rio>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/30 15:29:33 by acalvo4           #+#    #+#             */
-/*   Updated: 2022/05/30 15:34:44 by acalvo4          ###   ########.fr       */
+/*   Updated: 2022/05/31 12:43:45 by acalvo4          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 
 void	ft_lstadd_front(t_list **lst, t_list *new)
 {
+	if (!lst || !new)
+		return ;
 	new->next = *lst;
-	*lst=new;
+	*lst = new;
 }
